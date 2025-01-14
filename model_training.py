@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 
 # Step 1: Data Collection
 url = 'https://sites.google.com/site/dialetdebresa/dizionario-bresciano-italiano'
@@ -32,12 +33,21 @@ clean_text = remove_sections(raw_text, ["Dialèt de Brèsa (dialetto bresciano) 
 
 cleaner_text = remove_sections(' '.join(remove_parentheses(clean_text).split()), ["ai a: l dialetto bresciano rammatica roverbi bresciani, antichi e moderni oponomastica bresciana ella trascrizione dei termini dialettali si sono usate le regole fonetiche definite per tutti i documenti di questo sito. ra parentesi sono riportate le descrizioni grammaticali e di utilizzo dei termini, abbreviate secondo il seguente schema: agg. = aggettivo art. = articolo avv. = avverbio cong. = congiunzione det. = determinativo escl. = esclamazione est. = per estensione significa anche fam. = familiare fig. = figurato n.f. = sostantivo maschile n.m. = sostantivo femminile off! = offensivo, da evitare pl. = usato solo al plurale pr. = pronome prep. = preposizione rafforz. = rafforzativo sing. = usato solo al singolare spec. = specialmente usato v.in. = verbo intransitivo v.tr. = verbo transitivo ! = molto volgare, da evitare ~ = sostituisce la parola definita 1998-2013 arco orzati . oogle ites eport abuse age details age updated oogle ites eport abuse", "ai a: l dialetto bresciano rammatica roverbi bresciani, antichi e moderni oponomastica bresciana"])
 
-out_file = open("dict.txt", "w")
-out_file.write(cleaner_text)
 print(cleaner_text)
 
-bresciano_words = []
-italian_words = []
+with open('dict.txt', 'r', encoding='utf8') as dict:
+    lines = dict.readlines()
+
+word_pairs = []
+for line in lines:
+    if ' = ' in line:
+        bresciano, italiano = line.strip().split(' = ', 1)
+        word_pairs.append({"Italiano": italiano, "Bresciano": bresciano})
+
+df = pd.DataFrame(word_pairs)
+df.to_csv('dict.csv', index=False)
+
+print(df)
 
 # # Step 2: Extracting word pairs
 # italian_words = []

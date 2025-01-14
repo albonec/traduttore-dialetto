@@ -3,7 +3,7 @@ All credit and thanks for compiling this dictionary dataset goes to Marco Forzat
 
 a = a
 abasia = abbazia
-al = valle
+val = valle
 ala = ala
 altare = altare
 amùr = amore
