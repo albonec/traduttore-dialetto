@@ -171,7 +171,8 @@ mòl = molle; mòl del pa = mollica
 mònega = monaca
 moscaröla = dispensa pensile con zanzariera
 moségn = moccio
-muruze = lett.: morose, fidanzate; : andà ~ = uscire con qualcuno , avere una relazione
+muruze = lett.: morose, fidanzate;
+andà ~ = uscire con qualcuno , avere una relazione
 naser = nascere
 nèbia = nebbia
 nèdra = anitra
@@ -182,7 +183,8 @@ nigol = nuvola; nuvoloso
 nò = no
 no = non
 nòt = notte
-noanta = novanta; novantü = novantuno
+noanta = novanta
+novantü = novantuno
 nöf = nuovo
 nöf = nove
 nóter = noi
@@ -193,9 +195,11 @@ oltà = voltare
 öndès = undici
 òstrega = accidenti, caspita
 òt = otto
-otanta = ottanta; otantü = ottantuno
+otanta = ottanta
+otantü = ottantuno
 otomana = divano
-ozèl = uccello; pene, uccello; polènta e ozèi: tipico piatto del bresciano
+ozèl = uccello; pene, uccello
+polènta e ozèi = polenta è uccelli
 palmös = palmo
 paiàso = pagliaccio
 panèl = gradino
@@ -221,11 +225,10 @@ pò = poi; pò dòpo = poi
 pó = po'
 póc = poco
 pögn = pugno
-polènta = polenta; polènta e ozèi : tipico piatto del bresciano
+polènta = polenta
 póm = mela
 pòm grà = melograno
 póra = paura
-portogàl = arancia
 prét = prete
 pucià = spingere
 pulmù = polmone
