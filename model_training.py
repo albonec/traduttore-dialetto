@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-# Step 1: Data Collection
 url = 'https://sites.google.com/site/dialetdebresa/dizionario-bresciano-italiano'
 html = requests.get(url)
 
