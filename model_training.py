@@ -42,7 +42,7 @@ for line in lines:
         word_pairs.append({"Italiano": italiano, "Bresciano": bresciano})
 
 df = pd.DataFrame(word_pairs)
-df.to_csv('dict.csv', index=False)
+df.to_csv('dict.csv', index=True)
 
 print(df)
 
