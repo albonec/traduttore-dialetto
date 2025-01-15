@@ -28,7 +28,7 @@ clean_text = remove_sections(raw_text, ["Dialèt de Brèsa (dialetto bresciano) 
                                                        "[A] [B] [C] [D] [E] [F] [G] [H] [I] [L] [M] [N] [N] [O] [P] [Q] [R] [S] [T] [U] [V] [Z]",
                                                        " A ", " B ", " C ", " D ", " E ", " F ", " G ", " H ", " I ", " L ", " M ", " N ", " O ", " P ", " Q ", " R ", " S ", " T ", " U ", " V ", " Z ",
                                                        "Nella trascrizione dei termini dialettali si sono usate le regole fonetiche definite per tutti i documenti di questo sito. Tra parentesi sono riportate le descrizioni grammaticali e di utilizzo dei termini, abbreviate secondo il seguente schema: agg. = aggettivo art. = articolo avv. = avverbio cong. = congiunzione det. = determinativo escl. = esclamazione est. = per estensione significa anche fam. = familiare fig. = figurato n.f. = sostantivo maschile n.m. = sostantivo femminile off! = offensivo, da evitare pl. = usato solo al plurale pr. = pronome prep. = preposizione rafforz. = rafforzativo sing. = usato solo al singolare spec. = specialmente usato v.in. = verbo intransitivo v.tr. = verbo transitivo ! = molto volgare, da evitare ~ = sostituisce la parola definita (c) 1998-2013 Marco Forzati . Google Sites Report abuse Page details Page updated Google Sites Report abuse",
-                                          "Vai a: Il dialetto bresciano Grammatica Proverbi bresciani, antichi e moderni Toponomastica bresciana"])
+                                                       "Vai a: Il dialetto bresciano Grammatica Proverbi bresciani, antichi e moderni Toponomastica bresciana"])
 
 cleaner_text = ' '.join(remove_parentheses(clean_text).split())
 print(cleaner_text)
