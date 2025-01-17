@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traduttore in Dialetto</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="papaparse.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Traduttore in Dialetto</h1>
+        </header>
+        <main>
+            <div class="translation-panel">
+                <div class="input-section">
+                    <div class="language-dropdown">
+                        <span>Italiano</span>
+                    </div>
+                    <textarea id="inputText" rows="8" placeholder="Inserisci testo in italiano..."></textarea>
+                </div>
+                <div class="output-section">
+                    <div class="language-dropdown">
+                        <select id="targetLanguage">
+                            <option value="br">Dialèt de Brèsa</option>
+                            <!-- Add more dialects once available -->
+                        </select>
+                    </div>
+                    <textarea id="outputText" rows="8" placeholder="Testo tradotto verrà qui..."></textarea>
+                </div>
+                <button onclick="translateText()">Tradurre</button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
