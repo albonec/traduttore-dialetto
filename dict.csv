@@ -1,4 +1,32 @@
 Italiano,Bresciano
+bisogna bere di meno,boa beèr de meno
+persona di scarsa personalità e serietà,testa d'aglio
+che palle,che bala
+balla di fieno,bala de fé
+io vado a casa,me 'ndó a ca'
+davanti a,denàcc de
+mi ha fregato,el m'a encülàt
+abbracciare,brasà sö
+l’altro ieri,giér pasàt
+devo andare,gó de na
+pollice,dit gròs
+upupa,blu böba
+tonto,blu böba
+dover,iga de
+mollica,mòl del pa
+una volta,'na ólta
+polenta è uccelli,polènta e ozèi
+l’anno scorso,l’an pasàt
+veloce,de ónda
+un sacco di pecore,en ròs de pégore
+poi dopo,pò dòpo
+di solito,de sòlit
+ancora una volta,amò turna
+melograno,pòm grà
+dopodomani,pasàt domà
+appendere,tacà vià
+ha sbagliato un'altra volta,l'è turnàt a sbaglià
+non gli piaccio proprio,el me uzmà mia
 a,a
 abbazia,abasia
 valle,val
@@ -7,6 +35,7 @@ altare,altare
 amore,amùr
 anno,an
 andare,andà
+ancora,amò
 anima,anima
 acqua,aqua
 pioggia,aqua
@@ -33,8 +62,6 @@ bugia,bala
 ubriacatura,bala
 ubriacarsi seriamente,ciapà 'na bröta
 testicolo,bala
-che palle,che bala
-balla di fieno,bala de fé
 gioco praticato in piazza specie in al rompia,bala
 battendo una palla da tennis con le mani,bala
 balcone,balcù
@@ -53,26 +80,23 @@ baciare,bazà
 bello,bèl
 bianco,biànc
 litigare,bigà
+bere,beèr
+bisogna,besogna
 grembiule,bigaröl
 spaghetto,bigol
 groppo,bigol
 ombelico,bigol
 pene,bigol
-persona di scarsa personalità e serietà,testa d'aglio
 calesse,biròcc
 blu,blö
-upupa,blu böba
-tonto,blu böba
 cadere,borlà
 truciolo da pialla del legno,bòsgia
 botto,bòt
 l'una,bòt
 botta,bòta
 braccio,bras
-abbracciare,brasà sö
 brutto,bröt
 casa,ca'
-io vado a casa,me 'ndó a ca'
 cane,ca
 cavallo,caàl
 cagare,cagà
@@ -119,7 +143,6 @@ giorno,dé
 di,de
 da,de
 davanti,denàcc
-davanti a,denàcc de
 dieci,dés
 dire,di
 dire,di sö
@@ -131,7 +154,6 @@ diciannove,disnöf
 dito,dit
 diciassette,dizisèt
 domani,domà
-dopodomani,pasàt domà
 due,dò
 dopo,dòpo
 due,du
@@ -145,7 +167,6 @@ oggi pomeriggio,dopomesdé
 inculare,encülà
 fregare,encülà
 il,el
-mi ha fregato,el m'a encülàt
 vaffanculo,encület
 insieme,ensèma
 intero,entréc
@@ -162,7 +183,6 @@ nebbia fitta,ghèba
 padrino,ghidàs
 madrina,ghidàsa
 ieri,giér
-l’altro ieri,giér pasàt
 girare,girà
 uno,giü
 vomitare,gometà
@@ -172,11 +192,8 @@ grasso,gras
 pipistrello,gregnapola
 nodo,gróp
 grosso,gròs
-pollice,dit gròs
 idea,idèa
 avere,iga
-dover,iga de
-devo andare,gó de na
 devo,gó
 uguale,istès
 lo stesso,istès
@@ -227,7 +244,6 @@ mille,mile
 miliardo,miliardo
 milione,miliù
 molle,mòl
-mollica,mòl del pa
 monaca,mònega
 dispensa pensile con zanzariera,moscaröla
 moccio,moségn
@@ -255,11 +271,9 @@ nove,nöf
 noi,nóter
 funerale,óbet
 volta,ólta
-una volta,'na ólta
 arco,ólta
 voltare,oltà
 onda,ónda
-veloce,de ónda
 undici,öndès
 accidenti,òstrega
 caspita,òstrega
@@ -269,7 +283,6 @@ ottantuno,otantü
 divano,otomana
 uccello,ozèl
 pene,ozèl
-polenta è uccelli,polènta e ozèi
 palmo,palmös
 pagliaccio,paiàso
 partiamo,partöm
@@ -280,7 +293,6 @@ pentola,paröl
 passare,pasà
 scorso,pasàt
 passato,pasàt
-l’anno scorso,l’an pasàt
 appassito,pasàt
 non più maturo,pasàt
 andato a male,pasàt
@@ -304,13 +316,11 @@ capriola,pirlo
 spritz,pirlo
 pisciare,pisà
 poi,pò
-poi dopo,pò dòpo
 po',pó
 poco,póc
 pugno,pögn
 polenta,polènta
 mela,póm
-melograno,pòm grà
 paura,póra
 prete,prét
 spingere,pucià
@@ -333,7 +343,6 @@ refe,réf
 filo,réf
 rosso,rós
 un sacco di,ròs
-un sacco di pecore,en ròs de pégore
 rosa,róza
 ruggine,rözen
 rovinare,ruinà
@@ -379,7 +388,6 @@ ceppo,sòc
 zucca,söca
 suola,söla
 solito,sòlit
-di solito,de sòlit
 sputare,spüdà
 sputo,spüt
 duro,stagn
@@ -398,7 +406,6 @@ svelto,svèlto
 comiciare,tacà
 attaccare,tacà
 incollare,tacà
-appendere,tacà vià
 tagliare,taià
 smettere,taià
 tagliare,taià
@@ -433,16 +440,13 @@ trenta,trènta
 trentuno,trentü
 ancora,turna
 nuovamente,turna
-ancora una volta,amò turna
 tornare,turnà
 ritornare,turnà
 ripetere un'azione,turnà
-ha sbagliato un'altra volta,l'è turnàt a sbaglià
 abituato,Üs
 urlare,uzà
 apprezzare,uzmà
 trovare paicevole,uzmà
-non gli piaccio proprio,el me uzmà mia
 valle,val
 vecchio,vècc
 vecchia,vècc
