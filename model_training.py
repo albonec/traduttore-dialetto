@@ -43,5 +43,15 @@ for line in lines:
         word_pairs.append({"Italiano": italiano, "Bresciano": bresciano})
 
 df = pd.DataFrame(word_pairs)
-df.to_csv("corpus.it", columns=["Italiano"], index=False)
-df.to_csv("corpus.br", columns=["Italiano"], index=False)
+
+print(df)
+
+df.to_csv("vocab.it", columns=["Italiano"], index=False, header=False)
+df.to_csv("vocab.br", columns=["Bresciano"], index=False, header=False)
+
+dfs = pd.read_csv("sentence_dict.csv")
+
+print(dfs)
+
+dfs.to_csv("corpus.it", columns=["Italiano"], index=False, header=False)
+dfs.to_csv("corpus.br", columns=["Bresciano"], index=False, header=False)
