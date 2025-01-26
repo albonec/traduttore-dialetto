@@ -31,7 +31,7 @@ clean_text = remove_sections(raw_text, ["Dialèt de Brèsa (dialetto bresciano) 
                                                        "Vai a: Il dialetto bresciano Grammatica Proverbi bresciani, antichi e moderni Toponomastica bresciana"])
 
 cleaner_text = ' '.join(remove_parentheses(clean_text).split())
-print(cleaner_text)
+# print(cleaner_text)
 
 with open('dict.txt', 'r', encoding='utf8') as dict:
     lines = dict.readlines()
@@ -43,4 +43,5 @@ for line in lines:
         word_pairs.append({"Italiano": italiano, "Bresciano": bresciano})
 
 df = pd.DataFrame(word_pairs)
-df.to_csv('dict.csv', index=False)
+df.to_csv("corpus.it", columns=["Italiano"], index=False)
+df.to_csv("corpus.br", columns=["Italiano"], index=False)
