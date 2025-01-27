@@ -1,4 +1,5 @@
 import requests
+import yaml
 from bs4 import BeautifulSoup
 import pandas as pd
 
@@ -43,6 +44,12 @@ for line in lines:
         word_pairs.append({"Italiano": italiano, "Bresciano": bresciano})
 
 df = pd.DataFrame(word_pairs)
+word_dict = df.set_index('Italiano').to_dict()
+
+with open('vocab.br', 'w') as file:
+    yaml.dump(word_dict, file, default_flow_style=False, allow_unicode=True)
+
+df.to_csv("dict.csv", index=False)
 
 print(df)
 
