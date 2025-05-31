@@ -31,16 +31,18 @@ function translateText() {
     const targetLanguage = document.getElementById('targetLanguage').value;
 
     if (targetLanguage === 'br') {
-        const cleanedInputText = inputText.replace(/[^a-zA-Z\s]/g, ''); // Retain only letters and spaces
-        const words = cleanedInputText.split(' ');
+        const wordsWithPunctuation = extractWordsWithPunctuation(inputText);
 
-        const translatedWords = words.map(word => {
-            const index = italianoWords.indexOf(word.toLowerCase());
+        const translatedWords = wordsWithPunctuation.map(item => {
+            const cleanWord = item.word;
+            const index = italianoWords.indexOf(cleanWord.toLowerCase());
+
             if (index !== -1) {
                 const translation = brescianoWords[index];
-                return preserveCapitalization(word, translation);
+                const translatedWithCaps = preserveCapitalization(cleanWord, translation);
+                return translatedWithCaps + item.punctuation;
             }
-            return word;
+            return cleanWord + item.punctuation;
         });
 
         const translation = translatedWords.join(' ');
@@ -48,19 +50,32 @@ function translateText() {
     }
 }
 
-function preserveCapitalization(original, translation) {
-    if (!original || !translation) return translation;
+function extractWordsWithPunctuation(text) {
+    const words = text.split(/\s+/);
+    const punctuationRegex = /[,".?!;:]+$/;
 
-    // If the original word is all uppercase
+    return words.map(word => {
+        const punctuationMatch = word.match(punctuationRegex);
+        const punctuation = punctuationMatch ? punctuationMatch[0] : '';
+        const cleanWord = word.replace(punctuationRegex, '');
+
+        return {
+            word: cleanWord,
+            punctuation: punctuation
+        };
+    });
+}
+
+function preserveCapitalization(original, translation) {
+    if (!original || !translation){
+        return translation;
+    }
     if (original === original.toUpperCase()) {
         return translation.toUpperCase();
     }
-
-    // If the original word starts with uppercase
     if (original[0] === original[0].toUpperCase()) {
         return translation.charAt(0).toUpperCase() + translation.slice(1);
     }
 
-    // Otherwise return translation as-is
     return translation;
 }
