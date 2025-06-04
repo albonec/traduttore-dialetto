@@ -1,5 +1,4 @@
 Italiano,Bresciano
-bisogna bere di meno,boa beèr de meno
 persona di scarsa personalità e serietà,bigol
 che palle,che bala
 balla di fieno,bala de fé
@@ -30,8 +29,7 @@ non gli piaccio proprio,el me uzmà mia
 a,a
 abbazia,abasia
 valle,val
-ala,ala
-altare,altare
+aglio,ai
 amore,amùr
 anno,an
 andare,andà
@@ -50,7 +48,6 @@ carciofo,articiòc
 abbastanza,asé
 aggeggio,argàgn
 argento,arzènt
-autobus,autobus
 pancia,baga
 cornamusa lombarda con due soli bordoni,baghèt
 abbaiare,baià
@@ -107,7 +104,7 @@ caro,car
 carro,car
 cazzata,casada
 cazzo,caso
-edificio adibito ad abitazione,caza
+casa,caza
 ha,gà
 cià,gà
 caso,cazo
@@ -136,6 +133,7 @@ coda,cua
 cucchiaio,cügià
 cucchiaio,cügiàr
 culo,cül
+comune,cümü
 corto,cürt
 giorno,dé
 di,de
@@ -161,7 +159,7 @@ dovere,düzì
 e,e
 in,en
 oggi,encö
-oggi pomeriggio,dopomesdé
+pomeriggio,dopomesdé
 inculare,encülà
 fregare,encülà
 il,el
@@ -323,6 +321,7 @@ polenta,polènta
 mela,póm
 paura,póra
 prete,prét
+provincia,pruìnsa
 spingere,pucià
 polmone,pulmù
 poltrona,pultruna
@@ -424,7 +423,6 @@ soffice,tèner
 terra,tèra
 terrone,terù
 persona dal sud Italia,terù
-persona del sud Italia,terù
 lanciare,tirà
 tirare,tirà
 cavatappi,tirabusù
@@ -463,21 +461,225 @@ cianfrusaglia,zaài
 giallo,zalt
 giù,zó
 giovane,zuen
-testa d'aglio,bigol d'ai
+d'aglio,d'ai
 a lot,fìs
 a lot,fés
 coniglio,conéč
 pagliaccio,giüpì
 burattino,giüpì
 marionetta,giüpì
+brescia,brèsa
 la provincia di Brescia,la pruìnsa de Brèsa
 gli abitanti della provincia,i Brèsa
 Les Fleurs du Mal,I Fiùr del Mal
-focolare domestico,ca'
+casa,ca'
 in capo al mondo,en có al mónt
 che coglioni,che coióni
 è molto bello,l'è bèl fés
 sono arrivati tardissimo,i'è riacc tarde fés
-polenta e uccelli,polènta e ozèi
-un sacco di,ròs
-gioco praticato in piazza specie in Val Trompia, battendo una palla da tennis con le mani,zöc de la bala
+uccelli,ozèi
+sacco,ròs
+acquafredda,acuafrèda
+adro,ader
+agnosine,agnózen
+alfianello,alfianèl
+anfo,anf
+angolo terme,angól
+artogne,artògne
+azzano mella,asà
+bagnolo mella,bagnól
+bagolino,bagulì
+barbariga,barbariga
+barghe,barghe
+bassano bresciano,basà
+bedizzole,bedisöle
+berlingo,berlenc
+berzo demo,bèrs dém
+berzo inferiore,bers de sóta
+bienno,bièn
+bione,biù
+borgo san giacomo,borg san giacom
+borgosatollo,borsadól
+borno,buren
+botticino,butizì
+bovegno,böegn
+bovezzo,boès
+brandico,brandìc
+braone,braù
+breno,bré
+brescia,brèsa
+brione,briù
+caino,caì
+calcinato,calsinàt
+calvagese della riviera,calvagés
+calvisano,calvisà
+capo di ponte,có de put (có de pónt)
+capovalle,capovalle
+capriano del colle,cavrià
+capriolo,cavriöl
+carpenedolo,carpenédol
+castegnato,castegnàt
+castel mella,castèl mèla
+castelcovati,castelcoàt
+castenedolo,castenéol
+casto,cast
+castrezzato,castrezàt
+cazzago san martino,casàc
+cedegolo,sedégol
+cellatica,seladèga
+cerveno,cervé
+ceto,sét
+chiari,ciar
+cigole,sìgole
+cimbergo,simbèrc
+cividate camuno,siìda
+coccaglio,cocài
+collebeato,cobiàt
+collio,còi
+cologne,cològne
+comezzano-cizzago,comesà-sisàc
+concesio,conés
+corte franca,corte franca
+corteno golgi,córten
+corzano,corsà
+darfo boario terme,darf-boare
+dello,dèl
+desenzano del garda,dezensà
+edolo,édol
+erbusco,erbósc
+esine,ézen (éden)
+fiesse,fiès
+flero,flér
+gambara,gambara
+gardone riviera,gardù (söl lac)
+gardone val trompia,gardù (val trómpia)
+gargnano,gargnà
+gavardo,gaàrt
+ghedi,ghét
+gianico,gianèc
+gottolengo,ótalènc
+gussago,güsàc
+idro,ider
+incudine,incüzen
+irma,irma
+iseo,izé
+isorella,izorèla
+lavenone,lavinù
+leno,lé
+limone sul garda,limù
+lodrino,ludrì
+lograto,logràt
+lonato,lonàt
+longhena,longhéna
+losine,lósen (luden)
+lozio,lós
+lumezzane,lömezane (lömedane)
+maclodio,macló
+magasa,magasa
+mairano,mairà
+malegno,malégn
+malonno,malòn
+manerba del garda,manèrba
+manerbio,manèrbe
+marcheno,marché
+marmentino,marmintì
+marone,marù
+mazzano,masà
+milzano,milsà
+moniga del garda,muniga
+monno,món
+monte isola,muntìzola
+monticelli brusati,muntizèi
+montichiari,munticiàr
+montirone,muntirù
+mura,mura
+muscoline,muscoline
+nave,nae
+niardo,gnart
+nuvolento,nigolènt
+nuvolera,nigoléra
+odolo,ódol
+offlaga,oflaga
+ome,óme
+ono san pietro,dó
+orzinuovi,i urs (nöf)
+orzivecchi,i urs vècc
+ospitaletto,öspedalèt (spedalèt)
+ossimo,osèm
+padenghe sul garda,padènghe
+paderno franciacorta,padèren
+paisco loveno,paisc - loé
+paitone,paitù
+palazzolo sull'oglio,palasöl
+paratico,paradec
+paspardo,paspàrt
+passirano,pasirà
+pavone del mella,paù
+pertica alta,pèrtega alta
+pertica bassa,pèrtega basa
+pezzaze,pezaze
+pian camuno,pià
+piancogno,pià-cógn
+pisogne,pizòogne
+polaveno,polaen
+polpenazze del garda,polpenase
+pompiano,pompià
+poncarale,poncaràl
+ponte di legno,pónt de lègn
+pontevico,puntìc
+pontoglio,pontòi
+pozzolengo,posolènc
+pralboino,pralbuì
+preseglie,prezèi
+prestine,prèsten (prehten)
+prevalle,guiù
+provaglio val sabbia,proai (val sabia)
+provaglio d'iseo,proai (d'izé)
+puegnago sul garda,puegnàc
+quinzano d'oglio,quinsà
+remedello,remedèl
+rezzato,rezàt
+roccafranca,ròcafranca
+rodengo-saiano,rodènc-saià
+roncadelle,roncadèle
+rovato,roàt
+roè volciano,roè volciano
+rudiano,rüdià
+sabbio chiese,sabio
+sale marasino,sàle
+salò,salò
+san felice del benaco,san filìs
+san gervasio bresciano,san gervàs
+san paolo,san paol
+san zeno naviglio,san zé
+sarezzo,sarès
+saviore dell'adamello,saviùr
+sellero,sèler
+seniga,seniga
+serle,sèrle
+sirmione,sirmiù
+soiano del lago,soià
+sonico,sunìc
+sulzano,sülsà
+tavernole sul mella,tavèrnole
+temù,temö
+tignale,tignàl
+torbole casaglia,tórbole casaglia
+toscolano-maderno,toscolà-madèrn
+travagliato,traaiàt
+tremosine,tremùzen
+trenzano,trensà
+treviso bresciano,trevìs
+urago d'oglio,ürac
+vallio terme,vai
+valvestino,valvestì
+verolanuova,verölanöa
+verolavecchia,verölavècia
+vestone,vestù
+vezza d'oglio,èsa
+villa carcina,vìla-carsina
+villachiara,elaciara
+villanuova sul clisi,elanöa
+vione,viù
+visano,vizà
+vobarno,boaren

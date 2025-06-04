@@ -1,53 +1,72 @@
-let italianoWords = [];
-let brescianoWords = [];
+let sourceWords = [];
+let destinationWords = [];
+
+let targetLanguage = document.getElementById('targetLanguage').value;
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('dict.csv')
+    fetch(`dictionaries/dict_${targetLanguage}.csv`)
         .then(response => response.text())
         .then(data => {
             Papa.parse(data, {
                 header: true,
                 complete: function(results) {
-                    [italianoWords, brescianoWords] = convertCSVToArrays(results.data);
+                    [sourceWords, destinationWords] = convertCSVToArrays(results.data);
+                }
+            });
+        });
+});
+
+document.getElementById('targetLanguage').addEventListener('click', function() {
+    targetLanguage = document.getElementById('targetLanguage').value;
+    fetch(`dictionaries/dict_${targetLanguage}.csv`)
+        .then(response => response.text())
+        .then(data => {
+            Papa.parse(data, {
+                header: true,
+                complete: function(results) {
+                    [sourceWords, destinationWords] = convertCSVToArrays(results.data);
                 }
             });
         });
 });
 
 function convertCSVToArrays(data) {
-    const italiano = [];
-    const bresciano = [];
+    const source = [];
+    const destination = [];
 
-    data.forEach(row => {
-        italiano.push(row.Italiano);
-        bresciano.push(row.Bresciano);
-    });
+    if (targetLanguage === "br") {
+        data.forEach(row => {
+        source.push(row.Italiano);
+        destination.push(row.Bresciano);
+        });
+    } else if (targetLanguage === "mi") {
+        data.forEach(row => {
+        source.push(row.Italiano);
+        destination.push(row.Milanese);
+        });
+    }
 
-    return [italiano, bresciano];
+    return [source, destination];
 }
 
 function translateText() {
     const inputText = document.getElementById('inputText').value;
-    const targetLanguage = document.getElementById('targetLanguage').value;
+    const wordsWithPunctuation = extractWordsWithPunctuation(inputText);
 
-    if (targetLanguage === 'br') {
-        const wordsWithPunctuation = extractWordsWithPunctuation(inputText);
+    const translatedWords = wordsWithPunctuation.map(item => {
+        const cleanWord = item.word;
+        const index = sourceWords.indexOf(cleanWord.toLowerCase());
 
-        const translatedWords = wordsWithPunctuation.map(item => {
-            const cleanWord = item.word;
-            const index = italianoWords.indexOf(cleanWord.toLowerCase());
+        if (index !== -1) {
+            const translation = destinationWords[index];
+            const translatedWithCaps = preserveCapitalization(cleanWord, translation);
+            return translatedWithCaps + item.punctuation;
+        }
+        return cleanWord + item.punctuation;
+    });
 
-            if (index !== -1) {
-                const translation = brescianoWords[index];
-                const translatedWithCaps = preserveCapitalization(cleanWord, translation);
-                return translatedWithCaps + item.punctuation;
-            }
-            return cleanWord + item.punctuation;
-        });
-
-        const translation = translatedWords.join(' ');
-        document.getElementById('outputText').innerText = translation;
-    }
+    const translation = translatedWords.join(' ');
+    document.getElementById('outputText').innerText = translation;
 }
 
 function extractWordsWithPunctuation(text) {
