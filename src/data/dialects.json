@@ -1,0 +1,262 @@
+{
+  "version": 2,
+  "source": { "id": "it", "name": "Italiano" },
+  "regions": [
+    {
+      "id": "piemonte",
+      "name": "Piemonte",
+      "hubs": [
+        {
+          "id": "torino",
+          "name": "Torino",
+          "dialect": "Piemontese",
+          "endonym": "Piemontèis",
+          "dict": "dictionaries/piemonte/torino/piemontese.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "liguria",
+      "name": "Liguria",
+      "hubs": [
+        {
+          "id": "genova",
+          "name": "Genova",
+          "dialect": "Genovese",
+          "endonym": "Zeneise",
+          "dict": "dictionaries/liguria/genova/genovese.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "lombardia",
+      "name": "Lombardia",
+      "hubs": [
+        {
+          "id": "milano",
+          "name": "Milano",
+          "dialect": "Milanese",
+          "endonym": "Milanes",
+          "dict": "dictionaries/lombardia/milano/milanese.csv",
+          "villages": []
+        },
+        {
+          "id": "bergamo",
+          "name": "Bergamo",
+          "dialect": "Bergamasco",
+          "endonym": "Bergamàsch",
+          "dict": "dictionaries/lombardia/bergamo/bergamasco.csv",
+          "villages": []
+        },
+        {
+          "id": "brescia",
+          "name": "Brescia",
+          "dialect": "Bresciano",
+          "endonym": "Dialèt de Brèsa",
+          "dict": "dictionaries/lombardia/brescia/bresciano.csv",
+          "villages": [
+            {
+              "id": "breno",
+              "name": "Breno (Val Camonica)",
+              "dialect": "Camuno",
+              "endonym": "Camù",
+              "dict": "dictionaries/lombardia/brescia/camuno.csv",
+              "note": "Variante camuna: aspirazione della s in h (hich hach de hòch hèch...)"
+            },
+            {
+              "id": "lonato",
+              "name": "Lonato del Garda",
+              "dialect": "Lonatino",
+              "endonym": "Lunadì",
+              "dict": "dictionaries/lombardia/brescia/lonatino.csv",
+              "note": "Variante del basso Garda bresciano (dataset di Marco Forzati)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veneto",
+      "name": "Veneto",
+      "hubs": [
+        {
+          "id": "venezia",
+          "name": "Venezia",
+          "dialect": "Veneziano",
+          "endonym": "Venesian",
+          "dict": "dictionaries/veneto/venezia/veneziano.csv",
+          "villages": [
+            {
+              "id": "chioggia",
+              "name": "Chioggia",
+              "dialect": "Chioggiotto",
+              "endonym": "Ciosòto",
+              "dict": "dictionaries/veneto/venezia/chioggiotto.csv",
+              "note": "Variante lagunare: conserva la /l/ (bèlo vs bèo) e il lessico marinaro"
+            }
+          ]
+        },
+        {
+          "id": "verona",
+          "name": "Verona",
+          "dialect": "Veronese",
+          "endonym": "Veronese",
+          "dict": "dictionaries/veneto/verona/veronese.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "friuli-venezia-giulia",
+      "name": "Friuli-Venezia Giulia",
+      "hubs": [
+        {
+          "id": "udine",
+          "name": "Udine",
+          "dialect": "Friulano",
+          "endonym": "Furlan",
+          "dict": "dictionaries/friuli-venezia-giulia/udine/friulano.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "emilia-romagna",
+      "name": "Emilia-Romagna",
+      "hubs": [
+        {
+          "id": "bologna",
+          "name": "Bologna",
+          "dialect": "Bolognese",
+          "endonym": "Bulgnaiṡ",
+          "dict": "dictionaries/emilia-romagna/bologna/bolognese.csv",
+          "villages": []
+        },
+        {
+          "id": "ravenna",
+          "name": "Ravenna",
+          "dialect": "Romagnolo",
+          "endonym": "Rumagnôl",
+          "dict": "dictionaries/emilia-romagna/ravenna/romagnolo.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "toscana",
+      "name": "Toscana",
+      "hubs": [
+        {
+          "id": "firenze",
+          "name": "Firenze",
+          "dialect": "Fiorentino",
+          "endonym": "Fiorentino",
+          "dict": "dictionaries/toscana/firenze/fiorentino.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "lazio",
+      "name": "Lazio",
+      "hubs": [
+        {
+          "id": "roma",
+          "name": "Roma",
+          "dialect": "Romanesco",
+          "endonym": "Romanesco",
+          "dict": "dictionaries/lazio/roma/romanesco.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "campania",
+      "name": "Campania",
+      "hubs": [
+        {
+          "id": "napoli",
+          "name": "Napoli",
+          "dialect": "Napoletano",
+          "endonym": "Napulitano",
+          "dict": "dictionaries/campania/napoli/napoletano.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "puglia",
+      "name": "Puglia",
+      "hubs": [
+        {
+          "id": "bari",
+          "name": "Bari",
+          "dialect": "Barese",
+          "endonym": "Barese",
+          "dict": "dictionaries/puglia/bari/barese.csv",
+          "villages": []
+        },
+        {
+          "id": "lecce",
+          "name": "Lecce",
+          "dialect": "Salentino",
+          "endonym": "Salentinu",
+          "dict": "dictionaries/puglia/lecce/salentino.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "calabria",
+      "name": "Calabria",
+      "hubs": [
+        {
+          "id": "catanzaro",
+          "name": "Catanzaro",
+          "dialect": "Catanzarese",
+          "endonym": "Catanzarisi",
+          "dict": "dictionaries/calabria/catanzaro/catanzarese.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "sicilia",
+      "name": "Sicilia",
+      "hubs": [
+        {
+          "id": "palermo",
+          "name": "Palermo",
+          "dialect": "Siciliano (palermitano)",
+          "endonym": "Sicilianu",
+          "dict": "dictionaries/sicilia/palermo/palermitano.csv",
+          "villages": []
+        },
+        {
+          "id": "catania",
+          "name": "Catania",
+          "dialect": "Siciliano (catanese)",
+          "endonym": "Catanisi",
+          "dict": "dictionaries/sicilia/catania/catanese.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "sardegna",
+      "name": "Sardegna",
+      "hubs": [
+        {
+          "id": "cagliari",
+          "name": "Cagliari",
+          "dialect": "Sardo campidanese",
+          "endonym": "Campidanesu",
+          "dict": "dictionaries/sardegna/cagliari/campidanese.csv",
+          "villages": []
+        }
+      ]
+    }
+  ]
+}
