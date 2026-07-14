@@ -8,8 +8,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .container {
@@ -26,6 +28,44 @@ header {
     margin-bottom: 20px;
 }
 
+header h1 {
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.dialect-picker {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.dialect-picker label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.dict-info {
+    margin: 0 0 4px;
+    font-size: 13px;
+    color: #555;
+}
+
+.dict-note {
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-style: italic;
+    color: #777;
+}
+
 .translation-panel {
     display: flex;
     flex-direction: column;
@@ -38,10 +78,7 @@ header {
     gap: 10px;
 }
 
-.language-dropdown {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.language-label {
     background-color: #eef;
     padding: 10px;
     border-radius: 5px;
@@ -50,7 +87,8 @@ header {
 }
 
 textarea {
-    width: 97.19%;
+    width: 100%;
+    box-sizing: border-box;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -63,14 +101,28 @@ textarea:focus {
     outline-offset: 2px;
 }
 
+textarea[readonly] {
+    background-color: #fafafa;
+}
+
 select {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 15px;
+}
+
+select:disabled {
+    opacity: 0.6;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
 }
 
 button {
+    flex: 1;
     padding: 10px;
     background-color: #009933;
     color: white;
@@ -81,15 +133,20 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #007a29;
 }
 
-.output {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    background-color: #eef;
-    border-radius: 5px;
-    min-height: 50px;
-    font-size: 18px;
+button.secondary {
+    flex: 0 0 120px;
+    background-color: #cc0000;
+}
+
+button.secondary:hover {
+    background-color: #a30000;
+}
+
+@media (max-width: 600px) {
+    .dialect-picker {
+        grid-template-columns: 1fr;
+    }
 }

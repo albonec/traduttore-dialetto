@@ -34,7 +34,7 @@ clean_text = remove_sections(raw_text, ["Dialèt de Brèsa (dialetto bresciano) 
 cleaner_text = ' '.join(remove_parentheses(clean_text).split())
 # print(cleaner_text)
 
-with open('dictionaries/dict_br.txt', 'r', encoding='utf8') as dict:
+with open('dictionaries/sources/dict_br.txt', 'r', encoding='utf8') as dict:
     lines = dict.readlines()
 
 word_pairs = []
@@ -49,7 +49,9 @@ word_dict = df.set_index('Italiano').to_dict()
 with open('vocab.br', 'w') as file:
     yaml.dump(word_dict, file, default_flow_style=False, allow_unicode=True)
 
-df.to_csv("dict_br.csv", index=False)
+# Dataset del basso Garda bresciano (Forzati); rinormalizzare poi con
+# `python3 tools/normalize_dicts.py` per rispettare lo schema comune.
+df.to_csv("dictionaries/lombardia/brescia/lonatino.csv", index=False)
 
 print(df)
 

@@ -13,26 +13,40 @@
     <div class="container">
         <header>
             <h1>Traduttore Dialettico</h1>
+            <p class="subtitle">Dall'italiano ai dialetti d'Italia: regione, città, paese.</p>
         </header>
         <main>
+            <div class="dialect-picker">
+                <label>
+                    <span>Regione</span>
+                    <select id="regionSelect"></select>
+                </label>
+                <label>
+                    <span>Città di riferimento</span>
+                    <select id="hubSelect"></select>
+                </label>
+                <label>
+                    <span>Paese / frazione</span>
+                    <select id="villageSelect"></select>
+                </label>
+            </div>
+            <p id="dictInfo" class="dict-info">Caricamento…</p>
+            <p id="dictNote" class="dict-note"></p>
             <div class="translation-panel">
                 <div class="input-section">
-                    <div class="language-dropdown">
-                        <span>Italiano</span>
-                    </div>
-                    <textarea id="inputText" spellcheck="false" autocorrect="off" rows="8" placeholder="Inserisci testo in italiano..."></textarea>
+                    <div class="language-label">Italiano</div>
+                    <textarea id="inputText" spellcheck="false" autocorrect="off" rows="8"
+                              placeholder="Inserisci testo in italiano..."></textarea>
                 </div>
                 <div class="output-section">
-                    <div class="language-dropdown">
-                        <select id="targetLanguage">
-                            <option value="br">Dialèt de Brèsa</option>
-                            <option value="mi">Dialett Milanes</option>
-                            <!-- Add more dialects once available -->
-                        </select>
-                    </div>
-                    <textarea id="outputText" spellcheck="false" autocorrect="off" rows="8" placeholder="Testo tradotto verrà qui..."></textarea>
+                    <div class="language-label">Dialetto</div>
+                    <textarea id="outputText" spellcheck="false" autocorrect="off" rows="8" readonly
+                              placeholder="Il testo tradotto apparirà qui..."></textarea>
                 </div>
-                <button onclick="translateText()"><b>Traduci</b></button>
+                <div class="actions">
+                    <button onclick="translateText()"><b>Traduci</b></button>
+                    <button id="copyButton" class="secondary" type="button">Copia</button>
+                </div>
             </div>
         </main>
     </div>
