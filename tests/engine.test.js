@@ -79,6 +79,18 @@ check('all caps', translate('SOLDI', sic), 'PICCIULI');
 // 7. Empty chain returns input untouched
 check('empty chain', translate('ciao mondo', []), 'ciao mondo');
 
+// 8. Franco-Provençal village overlays the Piemontese hub
+const fp = [
+  buildDictionary(loadCSV('dictionaries/piemonte/torino/francoprovenzale-mocchie.csv'), 'Francoprovenzale'),
+  buildDictionary(loadCSV('dictionaries/piemonte/torino/piemontese.csv'), 'Piemontese'),
+];
+check('francoprovenzale overlay', translate('acqua', fp), 'aiva');
+check('piemontese fallback', translate('grazie', fp), 'mersì');
+
+// 9. Logudorese (Nuoro)
+const log = [buildDictionary(loadCSV('dictionaries/sardegna/nuoro/logudorese.csv'), 'Logudorese')];
+check('logudorese', translate('domani mangiare', log), 'cras mandigare');
+
 if (failures) {
   console.error(`\n${failures} failure(s)`);
   process.exit(1);

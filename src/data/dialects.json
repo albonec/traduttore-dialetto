@@ -1,7 +1,21 @@
 {
-  "version": 2,
+  "version": 3,
   "source": { "id": "it", "name": "Italiano" },
   "regions": [
+    {
+      "id": "valle-d-aosta",
+      "name": "Valle d'Aosta",
+      "hubs": [
+        {
+          "id": "aosta",
+          "name": "Aosta",
+          "dialect": "Patois valdostano",
+          "endonym": "Patoué valdotèn",
+          "dict": "dictionaries/valle-d-aosta/aosta/valdostano.csv",
+          "villages": []
+        }
+      ]
+    },
     {
       "id": "piemonte",
       "name": "Piemonte",
@@ -12,7 +26,16 @@
           "dialect": "Piemontese",
           "endonym": "Piemontèis",
           "dict": "dictionaries/piemonte/torino/piemontese.csv",
-          "villages": []
+          "villages": [
+            {
+              "id": "mocchie-laietto",
+              "name": "Mocchie e Laietto (Condove)",
+              "dialect": "Francoprovenzale",
+              "endonym": "Patouà",
+              "dict": "dictionaries/piemonte/torino/francoprovenzale-mocchie.csv",
+              "note": "Borgate francoprovenzali della bassa Val di Susa (vocabolario di Gian dij Cordòla)"
+            }
+          ]
         }
       ]
     },
@@ -78,6 +101,29 @@
       ]
     },
     {
+      "id": "trentino-alto-adige",
+      "name": "Trentino-Alto Adige",
+      "hubs": [
+        {
+          "id": "trento",
+          "name": "Trento",
+          "dialect": "Trentino",
+          "endonym": "Trentin",
+          "dict": "dictionaries/trentino-alto-adige/trento/trentino.csv",
+          "villages": [
+            {
+              "id": "canazei",
+              "name": "Canazei (Val di Fassa)",
+              "dialect": "Ladino fascian",
+              "endonym": "Fascian cazet",
+              "dict": "dictionaries/trentino-alto-adige/trento/ladino-fascian.csv",
+              "note": "Ladino dolomitico, variante cazet dell'alta Val di Fassa"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "veneto",
       "name": "Veneto",
       "hubs": [
@@ -99,6 +145,14 @@
           ]
         },
         {
+          "id": "padova",
+          "name": "Padova",
+          "dialect": "Padovano",
+          "endonym": "Padovan",
+          "dict": "dictionaries/veneto/padova/padovano.csv",
+          "villages": []
+        },
+        {
           "id": "verona",
           "name": "Verona",
           "dialect": "Veronese",
@@ -118,6 +172,14 @@
           "dialect": "Friulano",
           "endonym": "Furlan",
           "dict": "dictionaries/friuli-venezia-giulia/udine/friulano.csv",
+          "villages": []
+        },
+        {
+          "id": "trieste",
+          "name": "Trieste",
+          "dialect": "Triestino",
+          "endonym": "Triestin",
+          "dict": "dictionaries/friuli-venezia-giulia/trieste/triestino.csv",
           "villages": []
         }
       ]
@@ -155,6 +217,42 @@
           "endonym": "Fiorentino",
           "dict": "dictionaries/toscana/firenze/fiorentino.csv",
           "villages": []
+        },
+        {
+          "id": "livorno",
+          "name": "Livorno",
+          "dialect": "Livornese",
+          "endonym": "Livornese",
+          "dict": "dictionaries/toscana/livorno/livornese.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "umbria",
+      "name": "Umbria",
+      "hubs": [
+        {
+          "id": "perugia",
+          "name": "Perugia",
+          "dialect": "Perugino",
+          "endonym": "Perugino",
+          "dict": "dictionaries/umbria/perugia/perugino.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "marche",
+      "name": "Marche",
+      "hubs": [
+        {
+          "id": "ancona",
+          "name": "Ancona",
+          "dialect": "Anconitano",
+          "endonym": "Anconetano",
+          "dict": "dictionaries/marche/ancona/anconitano.csv",
+          "villages": []
         }
       ]
     },
@@ -168,6 +266,34 @@
           "dialect": "Romanesco",
           "endonym": "Romanesco",
           "dict": "dictionaries/lazio/roma/romanesco.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "abruzzo",
+      "name": "Abruzzo",
+      "hubs": [
+        {
+          "id": "pescara",
+          "name": "Pescara",
+          "dialect": "Abruzzese (pescarese)",
+          "endonym": "Abruzzese",
+          "dict": "dictionaries/abruzzo/pescara/abruzzese.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
+      "id": "molise",
+      "name": "Molise",
+      "hubs": [
+        {
+          "id": "campobasso",
+          "name": "Campobasso",
+          "dialect": "Molisano",
+          "endonym": "Mulisano",
+          "dict": "dictionaries/molise/campobasso/molisano.csv",
           "villages": []
         }
       ]
@@ -199,6 +325,14 @@
           "villages": []
         },
         {
+          "id": "taranto",
+          "name": "Taranto",
+          "dialect": "Tarantino",
+          "endonym": "Tarandíne",
+          "dict": "dictionaries/puglia/taranto/tarantino.csv",
+          "villages": []
+        },
+        {
           "id": "lecce",
           "name": "Lecce",
           "dialect": "Salentino",
@@ -209,15 +343,45 @@
       ]
     },
     {
+      "id": "basilicata",
+      "name": "Basilicata",
+      "hubs": [
+        {
+          "id": "potenza",
+          "name": "Potenza",
+          "dialect": "Lucano (potentino)",
+          "endonym": "Lucano",
+          "dict": "dictionaries/basilicata/potenza/potentino.csv",
+          "villages": []
+        }
+      ]
+    },
+    {
       "id": "calabria",
       "name": "Calabria",
       "hubs": [
+        {
+          "id": "cosenza",
+          "name": "Cosenza",
+          "dialect": "Cosentino",
+          "endonym": "Cusentinu",
+          "dict": "dictionaries/calabria/cosenza/cosentino.csv",
+          "villages": []
+        },
         {
           "id": "catanzaro",
           "name": "Catanzaro",
           "dialect": "Catanzarese",
           "endonym": "Catanzarisi",
           "dict": "dictionaries/calabria/catanzaro/catanzarese.csv",
+          "villages": []
+        },
+        {
+          "id": "reggio-calabria",
+          "name": "Reggio Calabria",
+          "dialect": "Reggino",
+          "endonym": "Rigginu",
+          "dict": "dictionaries/calabria/reggio-calabria/reggino.csv",
           "villages": []
         }
       ]
@@ -232,6 +396,14 @@
           "dialect": "Siciliano (palermitano)",
           "endonym": "Sicilianu",
           "dict": "dictionaries/sicilia/palermo/palermitano.csv",
+          "villages": []
+        },
+        {
+          "id": "messina",
+          "name": "Messina",
+          "dialect": "Siciliano (messinese)",
+          "endonym": "Missinisi",
+          "dict": "dictionaries/sicilia/messina/messinese.csv",
           "villages": []
         },
         {
@@ -254,6 +426,14 @@
           "dialect": "Sardo campidanese",
           "endonym": "Campidanesu",
           "dict": "dictionaries/sardegna/cagliari/campidanese.csv",
+          "villages": []
+        },
+        {
+          "id": "nuoro",
+          "name": "Nuoro",
+          "dialect": "Sardo logudorese-nuorese",
+          "endonym": "Logudoresu",
+          "dict": "dictionaries/sardegna/nuoro/logudorese.csv",
           "villages": []
         }
       ]

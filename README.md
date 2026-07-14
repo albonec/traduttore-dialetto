@@ -1,12 +1,15 @@
 # traduttore-dialetto
 
 Web app (React + Tailwind, built with Vite) that translates Standard Italian
-into the dialects of Italy, organized on three tiers:
+into the dialects of Italy — 39 varieties covering **all 20 regions** —
+organized on three tiers:
 
-1. **Regione** (e.g. Lombardia, Emilia-Romagna, Sicilia)
-2. **Città di riferimento** (hub: Milano, Brescia, Roma, Napoli, Catanzaro, …)
+1. **Regione** (all twenty, from Valle d'Aosta to Sardegna)
+2. **Città di riferimento** (hub: Milano, Brescia, Trieste, Roma, Napoli,
+   Catanzaro, Nuoro, …)
 3. **Paese / frazione** (local variants: Breno in Val Camonica, Chioggia,
-   Lonato del Garda, …)
+   Lonato del Garda, Mocchie e Laietto in Val di Susa, Canazei in Val di
+   Fassa, …)
 
 ## Development
 
@@ -73,5 +76,12 @@ workflow; the workflow adds the test gate and PR previews.)
   Camonica ("hich hach de hòch hèch höl holér a hecà").
 - The Chioggiotto variant keeps the /l/ that mainstream Venetian drops
   (bèlo vs bèo) plus some lagoon/fishing lexicon.
+- The Franco-Provençal of Mocchie e Laietto (Condove, Val di Susa) comes from
+  the "Parlèn a moda 'd nos" vocabulary by Gian dij Cordòla (~230 entries).
+- The Valdostano seed follows the Cerlogne/patoisvda.org orthography; the
+  Ladin fascian seed uses the cazet variant documented for the upper Val di
+  Fassa.
 - The other dictionaries are seed vocabularies of well-attested words and
-  should be expanded over time — contributions welcome.
+  should be expanded over time — contributions welcome. Seeds vary in size
+  (15–230 entries); the engine's hub fallback means village dictionaries only
+  need to record what differs.
