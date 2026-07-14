@@ -40,7 +40,9 @@ python3 -m http.server 8000
    schema (start from any existing file).
 2. Register it in `dialects.json` — as a new hub under its region, or as a
    village under an existing hub (with a `note` describing what makes it
-   distinct).
+   distinct) — then regenerate the script-loadable copy:
+   `python3 tools/sync_manifest.py` (writes `dialects.js`, which the page
+   loads synchronously so the pickers populate instantly).
 3. Normalize it: `python3 tools/normalize_dicts.py` (dedupes, sorts, unifies
    apostrophes).
 

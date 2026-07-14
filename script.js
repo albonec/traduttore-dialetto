@@ -149,6 +149,92 @@ if (typeof document !== 'undefined') {
     const state = { manifest: null, chain: [] };
     const $ = id => document.getElementById(id);
 
+    /*
+     * Menu a tendina custom: i <select> nativi su alcuni temi di sistema
+     * mostrano le opzioni con colori illeggibili. Qui il pannello è un
+     * elemento della pagina, con colori espliciti e lista scorrevole.
+     */
+    function createDropdown(id, onChange) {
+        const root = $(id);
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'dropdown-toggle';
+        toggle.setAttribute('aria-haspopup', 'listbox');
+        toggle.setAttribute('aria-expanded', 'false');
+        const labelSpan = document.createElement('span');
+        labelSpan.className = 'dropdown-label';
+        const caret = document.createElement('span');
+        caret.className = 'dropdown-caret';
+        caret.textContent = '▾';
+        toggle.append(labelSpan, caret);
+        const menu = document.createElement('ul');
+        menu.className = 'dropdown-menu';
+        menu.setAttribute('role', 'listbox');
+        root.append(toggle, menu);
+
+        let items = [];
+        let value = null;
+
+        function close() {
+            root.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+        function open() {
+            root.classList.add('open');
+            toggle.setAttribute('aria-expanded', 'true');
+            const sel = menu.querySelector('.selected');
+            if (sel) sel.scrollIntoView({ block: 'nearest' });
+        }
+
+        toggle.addEventListener('click', () => {
+            if (toggle.disabled) return;
+            root.classList.contains('open') ? close() : open();
+        });
+        document.addEventListener('click', e => {
+            if (!root.contains(e.target)) close();
+        });
+        toggle.addEventListener('keydown', e => {
+            if (e.key === 'Escape') close();
+        });
+
+        function renderMenu() {
+            menu.innerHTML = '';
+            for (const item of items) {
+                const li = document.createElement('li');
+                li.setAttribute('role', 'option');
+                li.textContent = item.label;
+                li.setAttribute('aria-selected', String(item.value === value));
+                if (item.value === value) li.classList.add('selected');
+                li.addEventListener('click', () => {
+                    const changed = value !== item.value;
+                    setValue(item.value);
+                    close();
+                    if (changed) onChange();
+                });
+                menu.appendChild(li);
+            }
+        }
+        function setValue(v) {
+            value = v;
+            const item = items.find(i => i.value === v);
+            labelSpan.textContent = item ? item.label : '';
+            renderMenu();
+        }
+
+        return {
+            setItems(newItems, selected) {
+                items = newItems;
+                const fallback = newItems.length ? newItems[0].value : null;
+                setValue(selected !== undefined ? selected : fallback);
+            },
+            setDisabled(disabled) {
+                toggle.disabled = disabled;
+                if (disabled) close();
+            },
+            get value() { return value; },
+        };
+    }
+
     async function fetchManifest() {
         const res = await fetch('dialects.json');
         if (!res.ok) throw new Error(`dialects.json: HTTP ${res.status}`);
@@ -174,44 +260,35 @@ if (typeof document !== 'undefined') {
         return buildDictionary(rows, label);
     }
 
+    let regionDD, hubDD, villageDD;
+
     function currentSelection() {
-        const region = state.manifest.regions.find(r => r.id === $('regionSelect').value);
-        const hub = region.hubs.find(h => h.id === $('hubSelect').value);
-        const village = hub.villages.find(v => v.id === $('villageSelect').value) || null;
+        const region = state.manifest.regions.find(r => r.id === regionDD.value);
+        const hub = region.hubs.find(h => h.id === hubDD.value);
+        const village = hub.villages.find(v => v.id === villageDD.value) || null;
         return { region, hub, village };
     }
 
-    function fillSelect(select, items, labelOf) {
-        select.innerHTML = '';
-        for (const item of items) {
-            const opt = document.createElement('option');
-            opt.value = item.id;
-            opt.textContent = labelOf(item);
-            select.appendChild(opt);
-        }
-    }
-
     function refreshHubs() {
-        const region = state.manifest.regions.find(r => r.id === $('regionSelect').value);
-        fillSelect($('hubSelect'), region.hubs, h => `${h.name} — ${h.dialect}`);
+        const region = state.manifest.regions.find(r => r.id === regionDD.value);
+        hubDD.setItems(region.hubs.map(h => ({
+            value: h.id,
+            label: `${h.name} — ${h.dialect}`,
+        })));
         refreshVillages();
     }
 
     function refreshVillages() {
-        const { hub } = currentSelection();
-        const select = $('villageSelect');
-        select.innerHTML = '';
-        const base = document.createElement('option');
-        base.value = '';
-        base.textContent = `Parlata cittadina (${hub.endonym})`;
-        select.appendChild(base);
-        for (const v of hub.villages) {
-            const opt = document.createElement('option');
-            opt.value = v.id;
-            opt.textContent = `${v.name} — ${v.dialect}`;
-            select.appendChild(opt);
-        }
-        select.disabled = hub.villages.length === 0;
+        const region = state.manifest.regions.find(r => r.id === regionDD.value);
+        const hub = region.hubs.find(h => h.id === hubDD.value);
+        villageDD.setItems([
+            { value: '', label: `Parlata cittadina (${hub.endonym})` },
+            ...hub.villages.map(v => ({
+                value: v.id,
+                label: `${v.name} — ${v.dialect}`,
+            })),
+        ]);
+        villageDD.setDisabled(hub.villages.length === 0);
     }
 
     async function reloadChain() {
@@ -245,27 +322,38 @@ if (typeof document !== 'undefined') {
         return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
     }
 
-    document.addEventListener('DOMContentLoaded', async () => {
-        try {
-            state.manifest = await fetchManifest();
-        } catch (err) {
-            $('dictInfo').textContent =
-                `Impossibile caricare dialects.json (${err.message}). Servire la cartella via HTTP.`;
-            return;
-        }
-        fillSelect($('regionSelect'), state.manifest.regions, r => r.name);
-        $('regionSelect').value = 'lombardia';
+    function initPickers() {
+        regionDD.setItems(
+            state.manifest.regions.map(r => ({ value: r.id, label: r.name })),
+            'lombardia'
+        );
         refreshHubs();
+        reloadChain();
+    }
 
-        $('regionSelect').addEventListener('change', () => { refreshHubs(); reloadChain(); });
-        $('hubSelect').addEventListener('change', () => { refreshVillages(); reloadChain(); });
-        $('villageSelect').addEventListener('change', reloadChain);
+    document.addEventListener('DOMContentLoaded', () => {
+        // I menu esistono da subito; i dati arrivano sincroni da dialects.js
+        // (fetch di dialects.json solo come ripiego).
+        regionDD = createDropdown('regionDropdown', () => { refreshHubs(); reloadChain(); });
+        hubDD = createDropdown('hubDropdown', () => { refreshVillages(); reloadChain(); });
+        villageDD = createDropdown('villageDropdown', reloadChain);
+
         $('inputText').addEventListener('input', debounce(translateText, 250));
         $('copyButton').addEventListener('click', () => {
             navigator.clipboard.writeText($('outputText').value);
         });
 
-        await reloadChain();
+        if (typeof window.DIALECTS !== 'undefined') {
+            state.manifest = window.DIALECTS;
+            initPickers();
+        } else {
+            fetchManifest()
+                .then(manifest => { state.manifest = manifest; initPickers(); })
+                .catch(err => {
+                    $('dictInfo').textContent =
+                        `Impossibile caricare dialects.json (${err.message}). Servire la cartella via HTTP.`;
+                });
+        }
     });
 }
 

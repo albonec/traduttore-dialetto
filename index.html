@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <script src="papaparse.min.js"></script>
+    <script src="dialects.js"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -17,18 +18,18 @@
         </header>
         <main>
             <div class="dialect-picker">
-                <label>
+                <div class="picker-field">
                     <span>Regione</span>
-                    <select id="regionSelect"></select>
-                </label>
-                <label>
+                    <div class="dropdown" id="regionDropdown"></div>
+                </div>
+                <div class="picker-field">
                     <span>Città di riferimento</span>
-                    <select id="hubSelect"></select>
-                </label>
-                <label>
+                    <div class="dropdown" id="hubDropdown"></div>
+                </div>
+                <div class="picker-field">
                     <span>Paese / frazione</span>
-                    <select id="villageSelect"></select>
-                </label>
+                    <div class="dropdown" id="villageDropdown"></div>
+                </div>
             </div>
             <p id="dictInfo" class="dict-info">Caricamento…</p>
             <p id="dictNote" class="dict-note"></p>

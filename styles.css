@@ -45,12 +45,99 @@ header h1 {
     margin-bottom: 10px;
 }
 
-.dialect-picker label {
+.picker-field {
     display: flex;
     flex-direction: column;
     gap: 4px;
     font-weight: bold;
     font-size: 14px;
+}
+
+/* Menu a tendina custom (colori espliciti: leggibile con qualsiasi tema) */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown-toggle:hover:not(:disabled) {
+    border-color: #009933;
+}
+
+.dropdown-toggle:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.dropdown-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dropdown-caret {
+    flex-shrink: 0;
+    color: #666;
+}
+
+.dropdown.open .dropdown-caret {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 20;
+    max-height: min(320px, 45vh);
+    overflow-y: auto;
+    margin: 0;
+    padding: 4px;
+    list-style: none;
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 9px 10px;
+    border-radius: 4px;
+    font-weight: normal;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: normal;
+}
+
+.dropdown-menu li:hover {
+    background-color: #eef;
+}
+
+.dropdown-menu li.selected {
+    background-color: #009933;
+    color: #ffffff;
 }
 
 .dict-info {
@@ -105,23 +192,12 @@ textarea[readonly] {
     background-color: #fafafa;
 }
 
-select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 15px;
-}
-
-select:disabled {
-    opacity: 0.6;
-}
-
 .actions {
     display: flex;
     gap: 10px;
 }
 
-button {
+.actions button {
     flex: 1;
     padding: 10px;
     background-color: #009933;
@@ -132,16 +208,16 @@ button {
     font-size: 16px;
 }
 
-button:hover {
+.actions button:hover {
     background-color: #007a29;
 }
 
-button.secondary {
+.actions button.secondary {
     flex: 0 0 120px;
     background-color: #cc0000;
 }
 
-button.secondary:hover {
+.actions button.secondary:hover {
     background-color: #a30000;
 }
 
