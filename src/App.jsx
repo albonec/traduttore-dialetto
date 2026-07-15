@@ -21,6 +21,8 @@ export default function App() {
   const [status, setStatus] = useState({ kind: 'loading', text: 'Caricamento dizionari…' });
   const [input, setInput] = useState('');
   const [copied, setCopied] = useState(false);
+  const [aiMode, setAiMode] = useState(true);
+  const [aiResult, setAiResult] = useState(null); // { text, predicted } | { error }
   const dictCache = useRef(new Map());
 
   const region = manifest.regions.find((r) => r.id === regionId);
@@ -74,7 +76,46 @@ export default function App() {
     };
   }, [region, hub, village]);
 
-  const output = useMemo(() => translate(input, chain), [input, chain]);
+  // id del modello lato API: il percorso del CSV senza prefisso/estensione
+  const dialectId = (village ?? hub).dict
+    .replace(/^dictionaries\//, '')
+    .replace(/\.csv$/, '');
+
+  // Modalità AI: il backend (dizionario + trasduttore statistico) predice
+  // anche le parole fuori dizionario. Debounce per non tempestare l'API.
+  useEffect(() => {
+    if (!aiMode || !input.trim()) {
+      setAiResult(null);
+      return;
+    }
+    const controller = new AbortController();
+    const timer = setTimeout(async () => {
+      try {
+        const res = await fetch('/api/translate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text: input, dialect: dialectId, use_model: true }),
+          signal: controller.signal,
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const predicted = data.lines
+          .flat()
+          .filter((seg) => seg.source === 'model')
+          .map((seg) => seg.text);
+        setAiResult({ text: data.text, predicted });
+      } catch (err) {
+        if (err.name !== 'AbortError') setAiResult({ error: true });
+      }
+    }, 350);
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
+  }, [aiMode, input, dialectId]);
+
+  const localOutput = useMemo(() => translate(input, chain), [input, chain]);
+  const output = aiMode && aiResult?.text ? aiResult.text : localOutput;
 
   const copy = async () => {
     await navigator.clipboard.writeText(output);
@@ -133,7 +174,17 @@ export default function App() {
         >
           {status.text}
         </p>
-        <p className="mb-3 min-h-4 text-xs italic text-gray-500">{village?.note ?? ''}</p>
+        <p className="mb-2 min-h-4 text-xs italic text-gray-500">{village?.note ?? ''}</p>
+
+        <label className="mb-3 flex cursor-pointer items-center gap-2 text-sm text-gray-700">
+          <input
+            type="checkbox"
+            checked={aiMode}
+            onChange={(e) => setAiMode(e.target.checked)}
+            className="h-4 w-4 accent-green-700"
+          />
+          Modalità AI — predice anche le parole fuori dizionario (modello statistico)
+        </label>
 
         <div className="flex flex-col gap-4">
           <section className="flex flex-col gap-2">
@@ -164,6 +215,18 @@ export default function App() {
               className="w-full resize-none rounded-md border border-gray-300 bg-gray-50 p-3
                          text-base focus:outline-2 focus:outline-offset-2 focus:outline-red-700"
             />
+            {aiMode && aiResult?.error && (
+              <p className="text-xs text-amber-700">
+                Backend AI non raggiungibile (in sviluppo: <code>yarn api</code>) — mostro la
+                traduzione da solo dizionario.
+              </p>
+            )}
+            {aiMode && aiResult?.predicted?.length > 0 && (
+              <p className="text-xs text-gray-500">
+                Predette dal modello (non nel dizionario):{' '}
+                <span className="italic">{aiResult.predicted.join(', ')}</span>
+              </p>
+            )}
           </section>
 
           <button

@@ -1,0 +1,7 @@
+# Non serve caricare questi file su Vercel (build remota):
+.venv
+.claude
+node_modules
+dist
+*.log
+.github

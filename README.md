@@ -21,6 +21,15 @@ yarn build      # production build into dist/
 yarn preview    # serve the production build locally
 ```
 
+Python backend (AI mode):
+
+```sh
+python3 -m venv .venv && .venv/bin/pip install fastapi uvicorn httpx
+yarn api        # FastAPI dev server on :8000 (vite proxies /api to it)
+yarn test:api   # backend test suite
+yarn train      # retrain dialect models (interactive; or `yarn train --all`)
+```
+
 ## How it works
 
 - [`src/data/dialects.json`](src/data/dialects.json) is the registry of the
@@ -38,6 +47,40 @@ yarn preview    # serve the production build locally
   capitalization, handles Italian elision (`l'acqua` → `l'` + translation of
   `acqua`), and does O(1) lookups via `Map`. Translation is live as you type.
 
+## AI engine (statistical, not generative)
+
+Besides the dictionary lookup, every dialect has its **own small
+machine-learning model** that predicts how *out-of-dictionary* Italian words
+would sound in that dialect — classical statistical ML, no generative AI:
+
+- **Training** ([`tools/train_models.py`](tools/train_models.py), stdlib
+  only): character-aligns each dictionary's Italian/dialect pairs (weighted
+  Levenshtein), extracts weighted rewrite rules keyed by position in the word
+  (start/mid/end/whole) and up to 2 characters of context (so it learns rules
+  like `-are → -à` for Bresciano or `b- → v-` for Neapolitan), and fits a
+  character-trigram language model on the dialect side. Each parlata's model
+  is a self-contained JSON in `api/_models/` (all 39 together: ~400 KB).
+  Train any dialect at any time: `yarn train bresciano`, `yarn train --all`,
+  or plain `yarn train` for an interactive picker. Retraining a hub city
+  automatically retrains its village variants (their merged dictionaries
+  depend on it). `--eval` reports held-out accuracy for the bigger
+  dictionaries.
+- **Inference** ([`api/_lib/transducer.py`](api/_lib/transducer.py)): a beam
+  search combines rule probabilities and the character LM to transduce an
+  unseen Italian word into the dialect; each prediction carries a confidence.
+  On the largest dictionary (Lonatino, ~660 pairs) held-out evaluation gets
+  42% exact@1 / 56% exact@3 and halves the edit distance vs. copying the
+  Italian word (0.34 vs 0.77).
+- **Backend** ([`api/index.py`](api/index.py)): FastAPI app served by
+  Vercel's Python runtime as a serverless function (`/api/*` is rewritten to
+  it in [`vercel.json`](vercel.json)). Endpoints: `GET /api/dialects`,
+  `POST /api/translate` (dictionary + model fallback, with per-word
+  provenance and confidence), `POST /api/predict` (top-k candidates for one
+  word — handy for expanding the dictionaries).
+- **Frontend**: the "Modalità AI" checkbox routes translation through the
+  backend and lists which output words were model-predicted rather than
+  found in a dictionary.
+
 ## Adding a dialect
 
 1. Create `public/dictionaries/<regione>/<città>/<parlata>.csv` with the
@@ -53,12 +96,18 @@ yarn preview    # serve the production build locally
 ## Deploying (Vercel)
 
 The site is a static Vite build (`dist/`); [`vercel.json`](vercel.json) pins
-`yarn build` as the build command.
+`yarn build` as the build command. The FastAPI backend in `api/index.py` is
+deployed automatically by Vercel's Python runtime (dependencies from
+[`requirements.txt`](requirements.txt)); the `rewrites` entry in
+`vercel.json` routes every `/api/*` request to it. The trained models in
+`api/_models/` are committed, so no training happens at deploy time.
 
 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs on every
-push and PR: installs with `yarn --frozen-lockfile`, runs the tests, builds,
-then deploys — PRs get a preview deployment, pushes to `master` go to
-production. It needs three repository secrets:
+push and PR: installs with `yarn --frozen-lockfile`, runs the JS engine
+tests, retrains the models and fails if `api/_models/` is out of sync with
+the dictionary CSVs (training is deterministic), runs the FastAPI tests,
+builds, then deploys — PRs get a preview deployment, pushes to `master` go
+to production. It needs three repository secrets:
 
 - `VERCEL_TOKEN` — create at vercel.com → Settings → Tokens
 - `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` — run `npx vercel link` once

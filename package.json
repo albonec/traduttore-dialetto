@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node tests/engine.test.js"
+    "test": "node tests/engine.test.js",
+    "api": ".venv/bin/uvicorn index:app --app-dir api --port 8000 --reload",
+    "test:api": ".venv/bin/python tests/api_test.py",
+    "train": "python3 tools/train_models.py"
   },
   "dependencies": {
     "papaparse": "^5.5.4",

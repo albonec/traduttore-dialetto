@@ -1,0 +1,355 @@
+{
+ "dialects": [
+  {
+   "id": "abruzzo/pescara/abruzzese",
+   "label": "Abruzzese (pescarese)",
+   "endonym": "Abruzzese",
+   "region": "Abruzzo",
+   "place": "Pescara",
+   "entries": 48,
+   "pairs": 48
+  },
+  {
+   "id": "basilicata/potenza/potentino",
+   "label": "Lucano (potentino)",
+   "endonym": "Lucano",
+   "region": "Basilicata",
+   "place": "Potenza",
+   "entries": 31,
+   "pairs": 31
+  },
+  {
+   "id": "calabria/catanzaro/catanzarese",
+   "label": "Catanzarese",
+   "endonym": "Catanzarisi",
+   "region": "Calabria",
+   "place": "Catanzaro",
+   "entries": 65,
+   "pairs": 65
+  },
+  {
+   "id": "calabria/cosenza/cosentino",
+   "label": "Cosentino",
+   "endonym": "Cusentinu",
+   "region": "Calabria",
+   "place": "Cosenza",
+   "entries": 35,
+   "pairs": 35
+  },
+  {
+   "id": "calabria/reggio-calabria/reggino",
+   "label": "Reggino",
+   "endonym": "Rigginu",
+   "region": "Calabria",
+   "place": "Reggio Calabria",
+   "entries": 42,
+   "pairs": 42
+  },
+  {
+   "id": "campania/napoli/napoletano",
+   "label": "Napoletano",
+   "endonym": "Napulitano",
+   "region": "Campania",
+   "place": "Napoli",
+   "entries": 94,
+   "pairs": 95
+  },
+  {
+   "id": "emilia-romagna/bologna/bolognese",
+   "label": "Bolognese",
+   "endonym": "Bulgnaiṡ",
+   "region": "Emilia-Romagna",
+   "place": "Bologna",
+   "entries": 75,
+   "pairs": 75
+  },
+  {
+   "id": "emilia-romagna/ravenna/romagnolo",
+   "label": "Romagnolo",
+   "endonym": "Rumagnôl",
+   "region": "Emilia-Romagna",
+   "place": "Ravenna",
+   "entries": 32,
+   "pairs": 32
+  },
+  {
+   "id": "friuli-venezia-giulia/trieste/triestino",
+   "label": "Triestino",
+   "endonym": "Triestin",
+   "region": "Friuli-Venezia Giulia",
+   "place": "Trieste",
+   "entries": 45,
+   "pairs": 46
+  },
+  {
+   "id": "friuli-venezia-giulia/udine/friulano",
+   "label": "Friulano",
+   "endonym": "Furlan",
+   "region": "Friuli-Venezia Giulia",
+   "place": "Udine",
+   "entries": 111,
+   "pairs": 112
+  },
+  {
+   "id": "lazio/roma/romanesco",
+   "label": "Romanesco",
+   "endonym": "Romanesco",
+   "region": "Lazio",
+   "place": "Roma",
+   "entries": 53,
+   "pairs": 53
+  },
+  {
+   "id": "liguria/genova/genovese",
+   "label": "Genovese",
+   "endonym": "Zeneise",
+   "region": "Liguria",
+   "place": "Genova",
+   "entries": 67,
+   "pairs": 67
+  },
+  {
+   "id": "lombardia/bergamo/bergamasco",
+   "label": "Bergamasco",
+   "endonym": "Bergamàsch",
+   "region": "Lombardia",
+   "place": "Bergamo",
+   "entries": 80,
+   "pairs": 80
+  },
+  {
+   "id": "lombardia/brescia/bresciano",
+   "label": "Bresciano",
+   "endonym": "Dialèt de Brèsa",
+   "region": "Lombardia",
+   "place": "Brescia",
+   "entries": 69,
+   "pairs": 69
+  },
+  {
+   "id": "lombardia/brescia/camuno",
+   "label": "Camuno",
+   "endonym": "Camù",
+   "region": "Lombardia",
+   "place": "Breno (Val Camonica), Brescia",
+   "entries": 83,
+   "pairs": 91
+  },
+  {
+   "id": "lombardia/brescia/lonatino",
+   "label": "Lonatino",
+   "endonym": "Lunadì",
+   "region": "Lombardia",
+   "place": "Lonato del Garda, Brescia",
+   "entries": 661,
+   "pairs": 637
+  },
+  {
+   "id": "lombardia/milano/milanese",
+   "label": "Milanese",
+   "endonym": "Milanes",
+   "region": "Lombardia",
+   "place": "Milano",
+   "entries": 209,
+   "pairs": 203
+  },
+  {
+   "id": "marche/ancona/anconitano",
+   "label": "Anconitano",
+   "endonym": "Anconetano",
+   "region": "Marche",
+   "place": "Ancona",
+   "entries": 24,
+   "pairs": 24
+  },
+  {
+   "id": "molise/campobasso/molisano",
+   "label": "Molisano",
+   "endonym": "Mulisano",
+   "region": "Molise",
+   "place": "Campobasso",
+   "entries": 36,
+   "pairs": 36
+  },
+  {
+   "id": "piemonte/torino/francoprovenzale-mocchie",
+   "label": "Francoprovenzale",
+   "endonym": "Patouà",
+   "region": "Piemonte",
+   "place": "Mocchie e Laietto (Condove), Torino",
+   "entries": 284,
+   "pairs": 285
+  },
+  {
+   "id": "piemonte/torino/piemontese",
+   "label": "Piemontese",
+   "endonym": "Piemontèis",
+   "region": "Piemonte",
+   "place": "Torino",
+   "entries": 97,
+   "pairs": 98
+  },
+  {
+   "id": "puglia/bari/barese",
+   "label": "Barese",
+   "endonym": "Barese",
+   "region": "Puglia",
+   "place": "Bari",
+   "entries": 35,
+   "pairs": 34
+  },
+  {
+   "id": "puglia/lecce/salentino",
+   "label": "Salentino",
+   "endonym": "Salentinu",
+   "region": "Puglia",
+   "place": "Lecce",
+   "entries": 34,
+   "pairs": 34
+  },
+  {
+   "id": "puglia/taranto/tarantino",
+   "label": "Tarantino",
+   "endonym": "Tarandíne",
+   "region": "Puglia",
+   "place": "Taranto",
+   "entries": 30,
+   "pairs": 29
+  },
+  {
+   "id": "sardegna/cagliari/campidanese",
+   "label": "Sardo campidanese",
+   "endonym": "Campidanesu",
+   "region": "Sardegna",
+   "place": "Cagliari",
+   "entries": 132,
+   "pairs": 132
+  },
+  {
+   "id": "sardegna/nuoro/logudorese",
+   "label": "Sardo logudorese-nuorese",
+   "endonym": "Logudoresu",
+   "region": "Sardegna",
+   "place": "Nuoro",
+   "entries": 96,
+   "pairs": 95
+  },
+  {
+   "id": "sicilia/catania/catanese",
+   "label": "Siciliano (catanese)",
+   "endonym": "Catanisi",
+   "region": "Sicilia",
+   "place": "Catania",
+   "entries": 57,
+   "pairs": 57
+  },
+  {
+   "id": "sicilia/messina/messinese",
+   "label": "Siciliano (messinese)",
+   "endonym": "Missinisi",
+   "region": "Sicilia",
+   "place": "Messina",
+   "entries": 39,
+   "pairs": 40
+  },
+  {
+   "id": "sicilia/palermo/palermitano",
+   "label": "Siciliano (palermitano)",
+   "endonym": "Sicilianu",
+   "region": "Sicilia",
+   "place": "Palermo",
+   "entries": 126,
+   "pairs": 126
+  },
+  {
+   "id": "toscana/firenze/fiorentino",
+   "label": "Fiorentino",
+   "endonym": "Fiorentino",
+   "region": "Toscana",
+   "place": "Firenze",
+   "entries": 25,
+   "pairs": 24
+  },
+  {
+   "id": "toscana/livorno/livornese",
+   "label": "Livornese",
+   "endonym": "Livornese",
+   "region": "Toscana",
+   "place": "Livorno",
+   "entries": 21,
+   "pairs": 22
+  },
+  {
+   "id": "trentino-alto-adige/trento/ladino-fascian",
+   "label": "Ladino fascian",
+   "endonym": "Fascian cazet",
+   "region": "Trentino-Alto Adige",
+   "place": "Canazei (Val di Fassa), Trento",
+   "entries": 79,
+   "pairs": 79
+  },
+  {
+   "id": "trentino-alto-adige/trento/trentino",
+   "label": "Trentino",
+   "endonym": "Trentin",
+   "region": "Trentino-Alto Adige",
+   "place": "Trento",
+   "entries": 59,
+   "pairs": 59
+  },
+  {
+   "id": "umbria/perugia/perugino",
+   "label": "Perugino",
+   "endonym": "Perugino",
+   "region": "Umbria",
+   "place": "Perugia",
+   "entries": 15,
+   "pairs": 15
+  },
+  {
+   "id": "valle-d-aosta/aosta/valdostano",
+   "label": "Patois valdostano",
+   "endonym": "Patoué valdotèn",
+   "region": "Valle d'Aosta",
+   "place": "Aosta",
+   "entries": 31,
+   "pairs": 31
+  },
+  {
+   "id": "veneto/padova/padovano",
+   "label": "Padovano",
+   "endonym": "Padovan",
+   "region": "Veneto",
+   "place": "Padova",
+   "entries": 44,
+   "pairs": 44
+  },
+  {
+   "id": "veneto/venezia/chioggiotto",
+   "label": "Chioggiotto",
+   "endonym": "Ciosòto",
+   "region": "Veneto",
+   "place": "Chioggia, Venezia",
+   "entries": 91,
+   "pairs": 92
+  },
+  {
+   "id": "veneto/venezia/veneziano",
+   "label": "Veneziano",
+   "endonym": "Venesian",
+   "region": "Veneto",
+   "place": "Venezia",
+   "entries": 84,
+   "pairs": 85
+  },
+  {
+   "id": "veneto/verona/veronese",
+   "label": "Veronese",
+   "endonym": "Veronese",
+   "region": "Veneto",
+   "place": "Verona",
+   "entries": 42,
+   "pairs": 42
+  }
+ ]
+}
