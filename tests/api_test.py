@@ -128,6 +128,55 @@ check(
     404,
 )
 
+# 7. In produzione l'API risponde solo al frontend (stessa origine)
+import importlib  # noqa: E402
+import os  # noqa: E402
+
+import index as index_module  # noqa: E402
+
+os.environ['VERCEL_ENV'] = 'production'
+try:
+    prod = TestClient(importlib.reload(index_module).app)
+    payload = {'text': 'ciao', 'dialect': 'lazio/roma/romanesco'}
+    check(
+        'prod: senza origine → 403',
+        prod.post('/api/translate', json=payload).status_code,
+        403,
+    )
+    check(
+        'prod: stessa origine → 200',
+        prod.post(
+            '/api/translate', json=payload, headers={'origin': 'http://testserver'}
+        ).status_code,
+        200,
+    )
+    check(
+        'prod: origine estranea → 403',
+        prod.post(
+            '/api/translate', json=payload, headers={'origin': 'https://altrosito.example'}
+        ).status_code,
+        403,
+    )
+    check(
+        'prod: sec-fetch-site cross-site → 403',
+        prod.post(
+            '/api/translate',
+            json=payload,
+            headers={'origin': 'http://testserver', 'sec-fetch-site': 'cross-site'},
+        ).status_code,
+        403,
+    )
+    check(
+        'prod: docs non raggiungibili',
+        prod.get('/api/docs', headers={'origin': 'http://testserver'}).status_code,
+        404,
+    )
+finally:
+    del os.environ['VERCEL_ENV']
+    importlib.reload(index_module)
+
+check('dev: docs raggiungibili', client.get('/api/docs').status_code, 200)
+
 if failures:
     print(f'\n{failures} test falliti')
     sys.exit(1)
